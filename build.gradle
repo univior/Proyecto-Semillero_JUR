@@ -1,0 +1,75 @@
+plugins {
+    id 'java'
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.6.7"
+}
+
+defaultTasks 'clean', 'test', 'aggregate'
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //    DEPENDENCIA JUNIT - APÍ QUE CONTIENE TODAS LAS CLASES Y LOS METODOS
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.3'
+
+    //    DEPENDENCIA JUNIT - ES EL MOTOR QUE NOS PERMITE EJECUTAR LAS CLASES
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.3'
+
+    //    DEPENDENCIA DE CUCUMBER INTEGRADO CON JAVA
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.12.0'
+
+    //   DEPENDENCIA DE CUCUMBER INTEGRADO CON JUNIT
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.12.0'
+
+    //   DEPENDENCIA DE CUCUMBER INTEGRADO CON JUNIT - MOTOR
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit-platform-engine
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit-platform-engine', version: '7.12.0'
+
+    // DEPENDENCIAS SERENITY
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.7.1'
+
+    //DEPENDENCIA SERENITY JUNIT
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit5
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-junit5', version: '3.7.1'
+
+    // METODOS Y CLASES PARA CONSUMIR LOS SERVICIOS
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay-rest
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-rest', version: '3.7.1'
+
+    // DEPENDENCIA PRINCIPAL
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '3.7.1'
+
+    // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+
+    // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+
+}
+
+tasks.register('cleanReport', Delete) {
+    delete "${projectDir}/target/site/serenity"
+}
+
+test {
+    dependsOn cleanReport
+    testLogging.showStandardStreams = true
+    //me trae todas las variables de entorno de la maquina
+    systemProperties System.getProperties()
+
+}
+
+// Cuando un test falle la prueba no se pare sino continua
+//gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
