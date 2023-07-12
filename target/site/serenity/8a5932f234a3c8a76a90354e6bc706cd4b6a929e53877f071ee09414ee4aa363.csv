@@ -1,0 +1,3 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Make request to service","Make request to method Get for consult all images of cats","SUCCESS","2023-07-12T10:50:23.077263-05:00[America/Bogota]","0.0","9.33"
+"Make request to service","Make request to method POST for create favorite an image of cat","SUCCESS","2023-07-12T10:50:32.448231-05:00[America/Bogota]","0.0","4.99"
