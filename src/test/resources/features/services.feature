@@ -7,12 +7,11 @@
       When I Execute the method Get with the resource api "images/search?limit=10"
       Then I will see that the is returned 200
 
-    #@GetAnImage
-    #  Scenario: Make request to method Get for consult an image of cat
-    #  Given I make the connection to the api
-    #  When I Execute the method Get with the resource api "search/?id="
-    #  Then I will see that the is returned 200
-
+    @GetAnImage
+      Scenario: Make request to method Get for consult an image of cat
+      Given I make the connection to the api
+      When I Execute the method Get with the resource api for consult an image "images/search"
+      Then I will see that the is returned 200
 
 
     @PostCreateFavourite
@@ -30,10 +29,11 @@
 
 
     @GetImagesFavourites
-    Scenario: Make request to method Get for cons
+    Scenario: Make request to method Get for consult an image favourite
       Given I make the connection to the api
-      When I Execute the method Get with the resource api "/favourites?sub_id=your-user-510"
+      When I Execute the method Get with the resource api  "/favourites/"
       Then I will see that the is returned 200
+
 
 
     @PostUnHappy

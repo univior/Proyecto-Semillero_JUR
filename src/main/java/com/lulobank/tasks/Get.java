@@ -20,7 +20,7 @@ public class Get implements Task {
     @Step("{0} consume get method")
     @Override
     public <T extends Actor> void performAs(T actor) {
-        if("search".equals(resourceApi)){
+
             given().
                 and().when().get(resourceApi);
                 String api_Key = "live_c8mWGG6stBNnmuoao87NESLH8Cv0gMohEoPCEpjHvYwPHeEqVNZvbDAwz8iVxfQJ";
@@ -29,15 +29,6 @@ public class Get implements Task {
                 .when().get(resourceApi)
                 .then().extract().response();
 
-        } else {
-            given().
-                    and().when().get(resourceApi);
-            String api_Key = "live_c8mWGG6stBNnmuoao87NESLH8Cv0gMohEoPCEpjHvYwPHeEqVNZvbDAwz8iVxfQJ";
-            given().
-                    header("Authorization", "Bearer" + api_Key)
-                    .when().get(resourceApi+id)
-                    .then().extract().response();
-        }
     }
 
     public static Get iexecuteGetMethodWithThe(String resourceApi){

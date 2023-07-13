@@ -18,6 +18,8 @@ import static com.lulobank.exceptions.ErrorAssertion.THE_CODES_DO_NOT_MATCH;
 import static com.lulobank.questions.Response.*;
 import static com.lulobank.tasks.Delete.deleteFavourite;
 import static com.lulobank.tasks.Get.iexecuteGetMethodWithThe;
+import static com.lulobank.tasks.GetAnImage.methodGetImage;
+import static com.lulobank.tasks.GetImageFavourite.methodGetImageFavourite;
 import static com.lulobank.tasks.Post.createFavouriteWithThe;
 import static com.lulobank.tasks.PostUnHappy.createUnHappy;
 import static com.lulobank.utils.Constants.MESSAGE;
@@ -27,6 +29,8 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+
 public class ExecuteServicesStepDefinition {
 
     @Before
@@ -62,6 +66,12 @@ public class ExecuteServicesStepDefinition {
 
     }
 
+    //CONSULTA DE UNA IMAGEN
+    @When("I Execute the method Get with the resource api for consult an image {string}")
+    public void iExecuteTheMethodGetWithTheResourceApiForConsultAnImage(String resourceApi) {
+        when(theActorInTheSpotlight()).wasAbleTo(methodGetImage(resourceApi));
+    }
+
 
 
     //CREACION DE VOTO IMAGEN FAVORITA
@@ -77,6 +87,13 @@ public class ExecuteServicesStepDefinition {
 
 
     }
+
+    //OBTENER INFORMACION DE IMAGEN FAVORITA
+    @When("I Execute the method Get with the resource api  {string}")
+    public void iExecuteTheMethodGetWithTheResourceApi(String resourceApi) {
+     when(theActorInTheSpotlight()).wasAbleTo(methodGetImageFavourite(resourceApi));
+    }
+
 
     //Delete
     @When("Execute the method DELETE with the resource api {string}")
