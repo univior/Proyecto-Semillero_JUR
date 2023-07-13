@@ -17,7 +17,7 @@ Dentro del proyecto se interactuo con las diferentes dependencias y/o herramient
 * Hamcrest
 * Patron de diseño Screenplay.
 
-#EJECUCION DEL PROYECTO
+# EJECUCION DEL PROYECTO
 
 El proyecto se compone de 9 casos de prueba, que se podrán ejecutar bajo la clase llamada "ExecuteServices" ubicada dentro de la carpeta  "runners"; a continuación se 
 relaciona la ubicacion:
@@ -40,7 +40,7 @@ El proyecto se puede ejecutar en su totalidad bajo el siguiente tag:
 
 ## MODULOS TRABAJADOS
 
-#OBTENCION DE IMAGENES
+# OBTENCION DE IMAGENES
 
 1. Bajo este modulo se trabajó el método GET, donde por medio de la URL https://api.thecatapi.com/v1/images/search?limit=10 y la Api Key, 
 se obtienen 10 de imágenes aleatorias de gatos.
@@ -80,7 +80,7 @@ ingresando el siguiente Tag :
 * tags = "@GetAnImage"
 
 
-#FAVORITOS
+# FAVORITOS
 
 1. Bajo este modulo se trabajó el método POST, donde por medio de la URL https://api.thecatapi.com/v1/favourites y la Api Key,
 permite que usuarios marquen como favorita una imagen.
@@ -167,14 +167,14 @@ ingresando el siguiente Tag :
 * tags = "@DeleteFavourite"
 
 
-#RESULTADO DE EJECUCION
+# RESULTADO DE EJECUCION
 
 Con el fin de tener un reporte total ó parcial de la ejecucion automatizada del proyecto, se anexo la configuracion para  crear un informe 
 de Serenity Reports, donde se podrá visualizar numeros de casos ejecutados con sus correspondientes estados, hora de inicio, hora de finalizacion, tiempo de duracion,
 entre otros.
 
 
-#REPOSITORIO
+# REPOSITORIO
 
 El proyecto de automatizacion se encuentra ubicado en el repositorio de GitHub:
 
