@@ -3,62 +3,77 @@
 #   PRESENTACION DE PROYECTO
 
 
-El proyecto se desarrolla mediante la API https://developers.thecatapi.com, donde 
-se utilizaron los principales verbos del API (POST, GET, DELETE), con el fin de hacer 
-las correspondientes validaciones a las peticiones.
+El proyecto se desarrolla mediante la API https://developers.thecatapi.com, donde se utilizaron los principales verbos del
+API (POST, GET, DELETE), con el fin de hacer las correspondientes validaciones a las peticiones.
 
 Dentro del proyecto se interactuo con las diferentes dependencias y/o herramientas:
 
 * Gradle para gestión de librerías.
-* Java.
+* Java version 11
 * Serenity (última versión) con BDD Screenplay: https://github.com/serenity-bdd/serenity-core
 * Cucumber (última versión) con Serenity.
 * Serenity Rest con Serenity y Screenplay
 * Hamcrest
 * Patron de diseño Screenplay.
 
+
+
 # EJECUCION DEL PROYECTO
 
-El proyecto se compone de 9 casos de prueba, que se podrán ejecutar bajo la clase llamada "ExecuteServices" ubicada dentro de la carpeta  "runners"; a continuación se 
-relaciona la ubicacion:
+* El proyecto se compone de 9 casos de prueba, que se podran visualizar en la carpeta llamada: "feature".
+
+/Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/resources/features/services.feature
+
+* Tambien esta compuesta por la carpeta: "runners", el cual bajo la clase "ExecuteServices" se encuentran las configuraciones necesarias para ejecutar nuestro 
+feature.
 
 /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
 
 El proyecto se puede ejecutar en su totalidad bajo el siguiente tag:
 
-* tags = "@services"
+   * tags = "@services"
 
 ó de forma parcial bajo los siguientes tags:
 
-* @GetImages
-* @GetAnImage
-* @PostCreateFavourite
-* @GetImagesFavourites
-* @PostUnHappy
-* @DeleteFavourite
+     * @GetImages
+     * @GetAnImage
+     * @PostCreateFavourite
+     * @GetImagesFavourites
+     * @PostUnHappy
+     * @DeleteFavourite
+
+* Como tambien se encuentra compuuesta por la carpeta: "stepdefinitions" el cual bajo la clase "ExecuteServicesStepDefinition" se encuentrá el código de los Given, When y Then, que componen el proyecto.
+  
+   /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/stepdefinitions/ExecuteServicesStepDefinition.java
 
 
-## MODULOS TRABAJADOS
+# MODULOS TRABAJADOS
 
-# OBTENCION DE IMAGENES
+Dentro del proceso de automatizacion se creo el correspondiente directorio basado en el patron de diseño de screenplay.
+
+## OBTENCION DE IMAGENES
+
+### Metodo GET
 
 1. Bajo este modulo se trabajó el método GET, donde por medio de la URL https://api.thecatapi.com/v1/images/search?limit=10 y la Api Key, 
 se obtienen 10 de imágenes aleatorias de gatos.
 
 Este response ademas de la URL de la imagen nos muestra información del ID, width y height, como se muestra a continuación:
 
+{
 "id": "a7i",
 "url": "https://cdn2.thecatapi.com/images/a7i.jpg",
 "width": 500,
 "height": 375
+}
 
 El caso se puede ejecutar de forma individual en la siguiente ruta::
 
-/Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
+   /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
 
-ingresando el siguiente Tag :
+ingresando el siguiente Tag:
 
-* tags = "@GetImages"
+   * tags = "@GetImages"
 
 
 2. Bajo este modulo se trabajó el método GET, donde por medio de la URL https://api.thecatapi.com/v1/images/search,
@@ -66,21 +81,25 @@ ingresando el siguiente Tag :
 
 Este response ademas de la URL de la imagen nos muestra información del ID, width y height, como se muestra a continuación:
 
+{
 "id": "a7i",
 "url": "https://cdn2.thecatapi.com/images/a7i.jpg",
 "width": 500,
 "height": 375
+}
 
 El caso se puede ejecutar de forma individual en la siguiente ruta::
 
-/Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
+   /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
 
 ingresando el siguiente Tag :
 
-* tags = "@GetAnImage"
+   * tags = "@GetAnImage"
 
 
-# FAVORITOS
+## FAVORITOS
+
+### Metodo POST
 
 1. Bajo este modulo se trabajó el método POST, donde por medio de la URL https://api.thecatapi.com/v1/favourites y la Api Key,
 permite que usuarios marquen como favorita una imagen.
@@ -90,22 +109,25 @@ las marquen como favoritas.
 
 El response de este escenario nos arroja la siguiente información:
 
+{
 "message": "SUCCESS",
 "id": 232365084
+}
 
 El caso se puede ejecutar de forma individual en la siguiente ruta:
 
-/Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
+   /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
 
 ingresando el siguiente Tag :
 
-* tags = "@PostCreateFavourite"
+   * tags = "@PostCreateFavourite"
 
 
+### Metodo GET
 
-2. Bajo este modulo se trabajó el método GET, donde por medio de la URL https://api.thecatapi.com/v1/favourites/:favourite_id y la Api Key,
-   permite que el usuario por medio del id favourite, obtenga la información de la imagen, usuario, id usuario y al fecha en que se marco dicha
-   imagen como favorita.
+Bajo este modulo se trabajó el método GET, donde por medio de la URL https://api.thecatapi.com/v1/favourites/:favourite_id y la Api Key,
+permite que el usuario con la información id favourite, obtenga la información de la imagen, usuario, id usuario y al fecha en que se marco dicha
+imagen como favorita.
 
 Este caso se ejecuta con imagenes marcadas con anterioridad como favoritas,  donde por media de Faker se hace una seleccion aleatoria y se 
 presenta el siguiente response:
@@ -124,32 +146,33 @@ presenta el siguiente response:
 
 El caso se puede ejecutar de forma individual en la siguiente ruta:
 
-/Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
+ /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
 
 ingresando el siguiente Tag :
 
-* tags = "@GetImagesFavourites"
+ * tags = "@GetImagesFavourites"
 
 
+### Metodo POST -UnHappyPath
 
-3. Bajo este modulo se trabajó el caso unhappypath con el método POST, donde por medio de la URL https://api.thecatapi.com/v1/favourites y la Api Key,
-   permite hacer una doble peticion de favorita a una imagen.
+Bajo este modulo se trabajó el caso unhappypath con el método POST, donde por medio de la URL https://api.thecatapi.com/v1/favourites y la Api Key,
+permite hacer una doble peticion de favorita a una imagen.
 
 Este caso se ejecuto mediante un escenario OutLine donde se tienen  como variables el image_id, sub_id y el mensaje de error controlado "DUPLICATE_FAVOURITE - favourites are unique for account + image_id + sub_id".
 
-
 El caso se puede ejecutar de forma individual en la siguiente ruta:
 
-/Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
+   /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
 
 ingresando el siguiente Tag :
 
-* tags = "@PostUnHappy"
+   * tags = "@PostUnHappy"
 
 
+### Metodo DELETE
 
-4. Bajo este modulo se trabajó el método DELETE, donde por medio de la URL https://api.thecatapi.com/v1/favourites/:favourite_idy la Api Key,
-   permite borrar una imagen como favorita.
+Bajo este modulo se trabajó el método DELETE, donde por medio de la URL https://api.thecatapi.com/v1/favourites/:favourite_idy la Api Key,
+permite borrar una imagen marcada como favorita.
 
 Este caso se ejecuta con imagenes marcadas con anterioridad como favoritas,  donde por media de Faker se hace una seleccion aleatoria y se borra
 dicha imagen como favorita, obteniendo como reponse:
@@ -160,11 +183,11 @@ dicha imagen como favorita, obteniendo como reponse:
 
 El caso se puede ejecutar de forma individual en la siguiente ruta:
 
-/Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
+   /Users/junivio/Documents/Proyecto Automatizacion 2/Proyecto-Semillero_JUR/src/test/java/com/lulobank/runners/ExecuteServices.java
 
 ingresando el siguiente Tag :
 
-* tags = "@DeleteFavourite"
+   * tags = "@DeleteFavourite"
 
 
 # RESULTADO DE EJECUCION
