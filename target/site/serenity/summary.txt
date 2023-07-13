@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Serenity report generated 13-07-2023 12:04:48
+=======
+Serenity report generated 13-07-2023 13:05:22
+>>>>>>> feature
 
 Test Cases:         1  (including 4 rows of test data)
 Passed:             1

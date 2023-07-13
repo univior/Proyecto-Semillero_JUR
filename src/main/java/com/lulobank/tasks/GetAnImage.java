@@ -19,7 +19,6 @@ public class GetAnImage implements Task {
 
 
         given().
-
                 and().when().get(resourceApi)
                 .then().log().all(true).extract().response();
 
