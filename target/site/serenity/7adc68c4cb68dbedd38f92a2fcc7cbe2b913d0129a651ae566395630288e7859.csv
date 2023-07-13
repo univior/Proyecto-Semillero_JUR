@@ -1,6 +1,2 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-<<<<<<< HEAD
-"Make request to service","Make request to method POST for create favorite an image of cat","SUCCESS","2023-07-13T12:04:33.251384-05:00[America/Bogota]","0.0","10.6"
-=======
-"Make request to service","Make request to method POST for create favorite an image of cat","SUCCESS","2023-07-13T13:05:07.63422-05:00[America/Bogota]","0.0","10.88"
->>>>>>> feature
+"Make request to service","Make request to method POST for create favorite an image of cat","SUCCESS","2023-07-13T14:17:25.866283-05:00[America/Bogota]","0.0","4.48"

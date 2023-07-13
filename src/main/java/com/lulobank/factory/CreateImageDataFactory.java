@@ -12,11 +12,9 @@ public class CreateImageDataFactory {
 
     private static final Faker FAKER = new Faker();
 
-<<<<<<< HEAD
-    public static final String id_favourites = String.valueOf(FAKER.random().nextInt(232365329 , 232365357));
-=======
+
     public static final String id_favourites = String.valueOf(FAKER.random().nextInt(232365394 , 232365427));
->>>>>>> feature
+
 
     static List <String> IMAGE_ID = Arrays.asList("9ccXTANkb8","9ccXTANkb9","9ccXTANkb10","9ccXTANkb11","9ccXTANkb12","9ccXTANkb13",
             "9ccXTANkb14","9ccXTANkb15","9ccXTANkb16","9ccXTANkb17");
