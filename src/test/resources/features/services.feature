@@ -7,6 +7,7 @@
       When I Execute the method Get with the resource api "images/search?limit=10"
       Then I will see that the is returned 200
 
+
     @GetAnImage
       Scenario: Make request to method Get for consult an image of cat
       Given I make the connection to the api
@@ -35,7 +36,6 @@
       Then I will see that the is returned 200
 
 
-
     @PostUnHappy
     Scenario Outline:  I Make request to method POST for realice double favorite an image of cat
       Given I make the connection to the api
@@ -54,11 +54,3 @@
       When Execute the method DELETE with the resource api "favourites/"
       Then I will see that the is returned 200
       Then Check if the image was delete successfully
-
-
-
-
-
-
-
-

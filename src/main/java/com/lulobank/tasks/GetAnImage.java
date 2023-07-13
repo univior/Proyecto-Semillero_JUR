@@ -17,17 +17,13 @@ public class GetAnImage implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        //Header header = new Header("x-api-key" , "live_c8mWGG6stBNnmuoao87NESLH8Cv0gMohEoPCEpjHvYwPHeEqVNZvbDAwz8iVxfQJ");
-
 
         given().
-                //header(header)
+
                 and().when().get(resourceApi)
                 .then().log().all(true).extract().response();
 
     }
-
-
     public static GetAnImage methodGetImage(String resourceApi){
         return Tasks.instrumented(GetAnImage.class, resourceApi);
     }
